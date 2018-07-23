@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import './App.css';
+import { Media } from 'reactstrap';
+
+import FileUpload from './FileUpload'
 
 class App extends Component {
 	
@@ -50,9 +53,11 @@ class App extends Component {
 		if(this.state.user){
 			return(
 				<div>
-				<img src = {this.state.user.photoURL} alt={this.state.user.displayName} />
-				<p>hola {this.state.user.displayName}</p>
-				<button onClick = {this.handleLogout}>Salir</button>
+					<Media object  src = {this.state.user.photoURL} alt={this.state.user.displayName} />
+					
+					<p>hola {this.state.user.displayName}</p>
+					<button onClick = {this.handleLogout}>Salir</button>
+			<FileUpload></FileUpload>
 				</div>
 			)
 		}else{
@@ -70,9 +75,9 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
+        <div className="App-intro">
 		{this.renderLogButton()}
-        </p>
+        </div>
       </div>
     );
   }
